@@ -4,7 +4,7 @@ namespace volkerschulz\WordPressPluginCreator;
 
 class Folders {
 
-    protected static $directories = [];
+    protected static Array $directories = [];
 
     public static function create(String $target_folder) : bool {
         $target_folder = rtrim($target_folder, "/\\");
