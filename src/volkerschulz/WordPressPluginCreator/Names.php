@@ -6,7 +6,7 @@ class Names {
 
     const DEFAULT_NAME = 'WordPress Test Plugin';
 
-    protected static $name_collection = [
+    protected static Array $name_collection = [
         'display_name'      => self::DEFAULT_NAME,
         'lc_dash'           => '',
         'lc_underscore'     => '',
