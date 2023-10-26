@@ -1,0 +1,3 @@
+.DS-Store
+/tests/output/*
+!/tests/output/.gitkeep
