@@ -6,7 +6,7 @@ use volkerschulz\WordPressPluginCreator\Folders;
 
 require_once('../vendor/autoload.php');
 
-Names::createFromDisplayName('My WordPress test plugin');
+Names::createFromDisplayName('My WordPress Test Plugin');
 Folders::create(__DIR__ . '/output/');
 
 $template_path = realpath(__DIR__ . '/../templates/default/v1');
