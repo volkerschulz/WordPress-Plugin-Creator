@@ -5,6 +5,7 @@ namespace volkerschulz\WordPressPluginCreator;
 class Folders {
 
     protected static Array $directories = [];
+    protected static String $plugin_root;
 
     public static function create(String $target_folder) : bool {
         $target_folder = rtrim($target_folder, "/\\");
@@ -18,6 +19,8 @@ class Folders {
         $plugin_root = $target_folder . '/' . $names['lc_dash'];
         if(!mkdir($plugin_root))
             return false;
+
+        self::$plugin_root = $plugin_root;
 
         // 1st level   
         self::$directories['admin'] = $plugin_root . '/admin';
@@ -36,6 +39,10 @@ class Folders {
 
         return self::createDirectories(self::$directories);
 
+    }
+
+    public static function getAll() : bool|Array {
+        return array_merge(['plugin_root' => self::$plugin_root], self::$directories);
     }
 
     private static function createDirectories(Array $directories) : bool {
