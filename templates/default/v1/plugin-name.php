@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://example.com
- * @since             1.0.0
+ * @link              %%DOC_LINK%%
+ * @since             %%VERSION%%
  * @package           Plugin_Name
  *
  * @wordpress-plugin
  * Plugin Name:       %%DISPLAY_NAME%%
  * Plugin URI:        http://example.com/plugin-name-uri/
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
- * Author:            Your Name or Your Company
- * Author URI:        http://example.com/
+ * Version:           %%VERSION%%
+ * Author:            %%AUTHOR_NAME%%
+ * Author URI:        %%AUTHOR_WEBSITE%%
  * License:           %%LICENSE_NAME%%
  * License URI:       %%LICENSE_URI%%
  * Text Domain:       plugin-name
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Currently plugin version.
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'PLUGIN_NAME_VERSION', '%%VERSION%%' );
 
 /**
  * The code that runs during plugin activation.
@@ -70,7 +70,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since    %%VERSION%%
  */
 function run_plugin_name() {
 	$plugin = new Plugin_Name();

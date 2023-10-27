@@ -16,6 +16,10 @@ class Replace {
         '%%TAGS_LIST%%'         => 'firsttag, secondtag',
         '%%LICENSE_NAME%%'      => 'GPLv3 or later',
         '%%LICENSE_URI%%'       => 'https://www.gnu.org/licenses/gpl-3.0.html',
+        '%%VERSION%%'           => '1.0.0',
+        '%%AUTHOR_NAME%%'       => 'Your Name or Your Company',
+        '%%AUTHOR_WEBSITE%%'    => 'https://example.com/',
+        '%%DOC_LINK%%'          => 'https://example.com/',
     ];
 
     public static function getAll() : Array {

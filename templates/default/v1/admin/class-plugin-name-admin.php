@@ -3,8 +3,8 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       http://example.com
- * @since      1.0.0
+ * @link       %%DOC_LINK%%
+ * @since      %%VERSION%%
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/admin
@@ -18,14 +18,13 @@
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/admin
- * @author     Your Name <email@example.com>
  */
 class Plugin_Name_Admin {
 
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    %%VERSION%%
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -34,7 +33,7 @@ class Plugin_Name_Admin {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    %%VERSION%%
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -43,7 +42,7 @@ class Plugin_Name_Admin {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.0.0
+	 * @since    %%VERSION%%
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
@@ -57,7 +56,7 @@ class Plugin_Name_Admin {
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
-	 * @since    1.0.0
+	 * @since    %%VERSION%%
 	 */
 	public function enqueue_styles() {
 
@@ -80,7 +79,7 @@ class Plugin_Name_Admin {
 	/**
 	 * Register the JavaScript for the admin area.
 	 *
-	 * @since    1.0.0
+	 * @since    %%VERSION%%
 	 */
 	public function enqueue_scripts() {
 
