@@ -18,8 +18,13 @@ if(!Names::createFromDisplayName($plugin_name))
     die("Error: Could not create names" . PHP_EOL);
 
 $output_directory = realpath(__DIR__ . '/output');
+if(!file_exists($output_directory)) {
+    if(!mkdir($output_directory)) {
+        die("Error: Output directory does not exist and failed to create" . PHP_EOL);
+    }
+}
 if(!Folders::create($output_directory)) 
-    die("Error: Could not directories" . PHP_EOL);
+    die("Error: Could not create directories" . PHP_EOL);
 
 $template_path = realpath(__DIR__ . '/templates/default/v1');
 if(!Files::copyFromTemplate($template_path))
