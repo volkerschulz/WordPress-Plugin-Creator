@@ -46,6 +46,7 @@ class Replace {
             return;
 
         self::loadNames();
+        self::loadConfig();
 
         self::$bootstrapped = true;
     }
@@ -57,6 +58,22 @@ class Replace {
         self::$replaces['plugin-name'] = $names['lc_dash'];
         self::$replaces['Plugin_Name'] = $names['pc_underscore'];
         self::$replaces['PLUGIN_NAME'] = $names['uc_underscore'];
+        return;
+    }
+
+    private static function loadConfig() : void {
+        if(!empty(Config::get('name')))
+            self::$replaces['%%AUTHOR_NAME%%'] = Config::get('name');
+
+        if(!empty(Config::get('website')))
+            self::$replaces['%%AUTHOR_WEBSITE%%'] = Config::get('website');
+
+        if(!empty(Config::get('initial_version')))
+            self::$replaces['%%VERSION%%'] = Config::get('initial_version');
+
+        if(!empty(Config::get('doc_link')))
+            self::$replaces['%%DOC_LINK%%'] = Config::get('doc_link');
+
         return;
     }
 }

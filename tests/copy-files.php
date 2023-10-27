@@ -1,11 +1,13 @@
 <?php
 
-use volkerschulz\WordPressPluginCreator\Files;
+use volkerschulz\WordPressPluginCreator\Config;
 use volkerschulz\WordPressPluginCreator\Names;
 use volkerschulz\WordPressPluginCreator\Folders;
+use volkerschulz\WordPressPluginCreator\Files;
 
 require_once('../vendor/autoload.php');
 
+Config::load(__DIR__ . '/../config-sample.ini');
 Names::createFromDisplayName('My WordPress test plugin');
 Folders::create(__DIR__ . '/output/');
 
