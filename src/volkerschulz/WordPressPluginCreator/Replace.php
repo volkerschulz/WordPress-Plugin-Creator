@@ -16,6 +16,10 @@ class Replace {
         '%%TAGS_LIST%%'         => 'firsttag, secondtag',
         '%%LICENSE_NAME%%'      => 'GPLv3 or later',
         '%%LICENSE_URI%%'       => 'https://www.gnu.org/licenses/gpl-3.0.html',
+        '%%VERSION%%'           => '1.0.0',
+        '%%AUTHOR_NAME%%'       => 'Your Name or Your Company',
+        '%%AUTHOR_WEBSITE%%'    => 'https://example.com/',
+        '%%DOC_LINK%%'          => 'https://example.com/',
     ];
 
     public static function getAll() : Array {
@@ -42,6 +46,7 @@ class Replace {
             return;
 
         self::loadNames();
+        self::loadConfig();
 
         self::$bootstrapped = true;
     }
@@ -53,6 +58,22 @@ class Replace {
         self::$replaces['plugin-name'] = $names['lc_dash'];
         self::$replaces['Plugin_Name'] = $names['pc_underscore'];
         self::$replaces['PLUGIN_NAME'] = $names['uc_underscore'];
+        return;
+    }
+
+    private static function loadConfig() : void {
+        if(!empty(Config::get('name')))
+            self::$replaces['%%AUTHOR_NAME%%'] = Config::get('name');
+
+        if(!empty(Config::get('website')))
+            self::$replaces['%%AUTHOR_WEBSITE%%'] = Config::get('website');
+
+        if(!empty(Config::get('initial_version')))
+            self::$replaces['%%VERSION%%'] = Config::get('initial_version');
+
+        if(!empty(Config::get('doc_link')))
+            self::$replaces['%%DOC_LINK%%'] = Config::get('doc_link');
+
         return;
     }
 }
