@@ -10,7 +10,16 @@ require_once(realpath(__DIR__) . '/vendor/autoload.php');
 if(!php_sapi_name() === 'cli')
     die("This application must be called from the CLI" . PHP_EOL);
 
+if(empty($argv[1])) 
+    die("Error: No plugin name provided\nUsage: php {$argv[0]} \"My Wordpress Plugin Name\"". PHP_EOL);
+
 $plugin_name = $argv[1];
+
+if(strlen($plugin_name)<10) {
+    echo "Warning: Short plugin name - Using short names is discouraged" . PHP_EOL;
+    if(!askUserToProceed())
+        die();
+}
 
 Config::load(realpath(__DIR__));
 
@@ -31,3 +40,17 @@ if(!Files::copyFromTemplate($template_path))
     die("Error: Could not copy files" . PHP_EOL);
 
 die("Done! Find your plugin at '{$output_directory}'" . PHP_EOL);
+
+function askUserToProceed() {
+    while(true) {
+        echo "Continue? [y,N] - ";
+        $stdin = fopen('php://stdin', 'r');
+        $response = trim(strtolower(fgets($stdin)));
+        if(empty($response) || $response === 'n')
+            return false;
+        
+        if(trim(strtolower($response)) === 'y') 
+            return true;
+        
+    }
+}
