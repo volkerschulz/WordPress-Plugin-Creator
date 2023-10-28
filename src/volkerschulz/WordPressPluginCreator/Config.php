@@ -9,13 +9,13 @@ class Config {
 
     public static function load(String $path) : bool {
         $path = realpath($path);
-        if(is_dir($path))
+        if(file_exists($path) && is_dir($path))
             $path .= '/config.ini';
 
-        if(is_file($path)) 
+        if(file_exists($path) && is_file($path)) 
             $values = parse_ini_file($path);
 
-        if(is_array($values)) {
+        if(!empty($values) && is_array($values)) {
             self::$options = $values;
             return true;
         }
