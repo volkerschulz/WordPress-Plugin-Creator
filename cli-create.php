@@ -33,7 +33,7 @@ if(!file_exists($output_directory)) {
     }
 }
 
-$template_path = realpath(__DIR__ . '/templates/default/v1');
+$template_path = realpath(__DIR__ . '/templates/composer/v1');
 
 if(!Folders::createFromTemplate($template_path, $output_directory)) 
     die("Error: Could not create directories" . PHP_EOL);

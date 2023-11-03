@@ -18,6 +18,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use PluginName\Config;
+use PluginName\Activator;
+use PluginName\Deactivator;
+use PluginName\Loader;
 
-require_once ( 'vendor/autoload.php' );
+require_once( 'vendor/autoload.php' );
 
+
+/**
+ * PLUGIN CONFIG
+ */
+Config::set( 'plugin_dir_url', plugin_dir_url( __FILE__ ) );
+Config::set( 'plugin_dir_path', plugin_dir_path( __FILE__ ) );
+
+
+/**
+ * PLUGIN ACTIVATION
+ */
+register_activation_hook( __FILE__, function() {
+	Activator::run();
+} );
+
+
+/**
+ * PLUGIN DEACTIVATION
+ */
+register_deactivation_hook( __FILE__, function() {
+	Deactivator::run();
+} );
+
+
+/**
+ * PLUGIN LOADER
+ */
+Loader::run();

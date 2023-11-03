@@ -2,9 +2,9 @@
 
 namespace PluginName;
 
-class Activator {
+class Plugin {
 
-    public static function run() : bool {
+    public function run() : bool {
         
         return true;
     }
