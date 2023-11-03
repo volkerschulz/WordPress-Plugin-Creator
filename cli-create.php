@@ -32,10 +32,12 @@ if(!file_exists($output_directory)) {
         die("Error: Output directory does not exist and failed to create" . PHP_EOL);
     }
 }
-if(!Folders::create($output_directory)) 
-    die("Error: Could not create directories" . PHP_EOL);
 
 $template_path = realpath(__DIR__ . '/templates/default/v1');
+
+if(!Folders::createFromTemplate($template_path, $output_directory)) 
+    die("Error: Could not create directories" . PHP_EOL);
+
 if(!Files::copyFromTemplate($template_path))
     die("Error: Could not copy files" . PHP_EOL);
 

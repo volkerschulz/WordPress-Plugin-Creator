@@ -11,7 +11,8 @@ class Names {
         'lc_dash'           => '',
         'lc_underscore'     => '',
         'pc_underscore'     => '',
-        'uc_underscore'     => ''
+        'uc_underscore'     => '',
+        'pc_plain'          => ''
     ];
 
     public static function createFromDisplayName(String $display_name) : bool|Array {
@@ -30,6 +31,9 @@ class Names {
 
         self::$name_collection['uc_underscore'] = 
             strtoupper(self::$name_collection['pc_underscore']);
+
+        self::$name_collection['pc_plain'] = 
+            str_replace('_', '', self::$name_collection['pc_underscore']);
 
         if(!self::isComplete())
             return false;

@@ -45,7 +45,7 @@ class Files {
         return;
     }
 
-    private static function renameFilesAndFolders(String $path) {
+    private static function renameFilesAndFolders(String $path) : String {
         $names = Names::getAll();
         if($names===false)
             return $path;
@@ -54,6 +54,7 @@ class Files {
         $renamed = str_replace('plugin_name', $names['lc_underscore'], $renamed);
         $renamed = str_replace('Plugin_Name', $names['pc_underscore'], $renamed);
         $renamed = str_replace('PLUGIN_NAME', $names['uc_underscore'], $renamed);
+        $renamed = str_replace('PluginName', $names['pc_plain'], $renamed);
         return $renamed;
     } 
 

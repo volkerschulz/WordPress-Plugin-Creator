@@ -11,6 +11,7 @@ class Replace {
         'plugin-name'           => 'plugin-name',
         'Plugin_Name'           => 'Plugin_Name',
         'PLUGIN_NAME'           => 'PLUGIN_NAME',
+        'PluginName'            => 'PluginName',
         '%%CONTRIBUTOR_IDS%%'   => '(this should be a list of wordpress.org userids)',
         '%%DONATE_LINK%%'       => 'https://example.com/donate',
         '%%TAGS_LIST%%'         => 'firsttag, secondtag',
@@ -58,6 +59,7 @@ class Replace {
         self::$replaces['plugin-name'] = $names['lc_dash'];
         self::$replaces['Plugin_Name'] = $names['pc_underscore'];
         self::$replaces['PLUGIN_NAME'] = $names['uc_underscore'];
+        self::$replaces['PluginName'] = $names['pc_plain'];
         return;
     }
 
