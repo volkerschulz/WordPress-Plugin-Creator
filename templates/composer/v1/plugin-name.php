@@ -30,6 +30,7 @@ require_once( 'vendor/autoload.php' );
  */
 Config::set( 'plugin_dir_url', plugin_dir_url( __FILE__ ) );
 Config::set( 'plugin_dir_path', plugin_dir_path( __FILE__ ) );
+Config::parseHeader( realpath( __FILE__ ) );
 
 
 /**

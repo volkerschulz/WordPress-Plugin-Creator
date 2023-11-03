@@ -16,4 +16,35 @@ class Config {
         return isset(self::$values[$key]) ? self::$values[$key] : null;
     }
 
+    public static function parseHeader( String $bootstrap_file ) : bool {
+        if(!file_exists($bootstrap_file))
+            return false;
+
+        $header_map = [
+            'name'           => 'Plugin Name',
+            'plugin_uri'     => 'Plugin URI',
+            'version'        => 'Version',
+            'description'    => 'Description',
+            'author'         => 'Author',
+            'author_profile' => 'Author URI',
+            'text_domain'    => 'Text Domain',
+            'domain_path'    => 'Domain Path',
+            'network'        => 'Network'
+        ];
+
+        $file_contents = str_replace( "\r", "\n", file_get_contents($bootstrap_file) );
+
+        foreach ( $header_map as $field => $pretty_name ) {
+            $found = preg_match( '/^[ \t\/*#@]*' . preg_quote( $pretty_name, '/' ) . ':(.*)$/mi', $file_contents, $matches );
+            if ( ( $found > 0 ) && ! empty( $matches[1] ) ) {
+                $value = trim( preg_replace( "/\s*(?:\*\/|\?>).*/", '', $matches[1] ) );
+                self::set( $field, $value );
+            } else {
+                self::set( $field, '' );
+            }
+        }
+
+        return true;
+    }
+
 }
