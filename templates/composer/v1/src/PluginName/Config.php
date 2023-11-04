@@ -16,6 +16,14 @@ class Config {
         return isset(self::$values[$key]) ? self::$values[$key] : null;
     }
 
+    /**
+     * Undocumented function
+     * 
+     * From https://github.com/tutv/wp-package-parser/tree/develop/src (MIT license)
+     *
+     * @param String $bootstrap_file
+     * @return boolean
+     */
     public static function parseHeader( String $bootstrap_file ) : bool {
         if(!file_exists($bootstrap_file))
             return false;
