@@ -20,7 +20,7 @@ class Loader {
         } );
         
 
-         /**
+        /**
          * Enqueue public scripts and styles
          */
         add_action( 'wp_enqueue_scripts', function() {
@@ -36,7 +36,7 @@ class Loader {
          */
         add_action( 'plugins_loaded', function() {
             load_plugin_textdomain(
-                'plugin-name',
+                Config::get( 'text_domain' ),
                 false,
                 Config::get( 'plugin_dir_path' ) . 'languages/'
             );
