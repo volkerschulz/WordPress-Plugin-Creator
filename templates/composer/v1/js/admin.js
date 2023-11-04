@@ -2,7 +2,7 @@ class PluginName extends PluginNameCommon {
 
     static run() {
         super.run();
-        console.log('Admin runner');
+        this.log('Admin runner');
     }
 
 }

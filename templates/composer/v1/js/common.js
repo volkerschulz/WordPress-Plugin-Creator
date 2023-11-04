@@ -1,7 +1,13 @@
 class PluginNameCommon {
 
+    static JS_DEBUG = true;
+
     static run() {
-        console.log('Common runner');
+        this.log('Common runner');
+    }
+
+    static log(message) {
+        if(this.JS_DEBUG) console.log(message);
     }
 
 }
